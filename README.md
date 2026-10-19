@@ -1,6 +1,8 @@
 # Cassette Collars – website improvement prototypes
 
-Five clickable greyscale prototypes for improvements to cassettecollars.co.uk, following the phase 1 review (19 October 2026). They are deliberately unstyled: `src/css/theme.css` is empty, and the Cassette Collars look will be applied there in phase 3 without touching the pages.
+Five clickable prototypes for improvements to cassettecollars.co.uk, following the phase 1 review (19 October 2026). The Cassette Collars design layer (Plus Jakarta Sans and Montserrat, black on paper, pill buttons, the mint gradient and charcoal footer) lives entirely in `src/css/theme.css`; remove that file to get the greyscale prototypes back. Filled buttons use a deeper green than the live site (#0E7A14 rather than #12B71A) so white button text passes WCAG AA.
+
+Photography is Cassette Collars' own, loaded directly from cassettecollars.co.uk by `src/js/photos.js` (the mapping of images to products, galleries and projects lives there). Where the images can't load, illustrated placeholders in the brand palette show instead. Stock and AI-generated images on the live site are not used. Photography © Cassette Collars; the repository and site are public, so treat them accordingly.
 
 ## View
 Live: https://hrhlescargotleo.github.io/Cassette-Collars-Roadmap/ (once GitHub Pages is switched on)
@@ -28,4 +30,4 @@ node build-includes.js && node validate.js
 Edit files in `src/`; `docs/` is generated (commit it, as GitHub Pages serves it). The prototype navigator and the previous/next footer live in `src/includes/`.
 
 ## Status
-Version 1, greyscale prototypes for internal review. Notes are off by default; switch "Notes on" in the top bar to see what each prototype proposes and why, plus in-page annotations (yellow: behaviour; red: questions for Cassette Collars).
+Version 2, designed prototypes for internal review. Notes are off by default; switch "Notes on" in the top bar to see what each prototype proposes and why, plus in-page annotations (yellow: behaviour; red: questions for Cassette Collars).

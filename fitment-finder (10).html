@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitment finder — Cassette Collars prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Cassette Collars prototypes, overview">Cassette Collars <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/fitment-finder.html" data-proto="fitment-finder"><span class="n">1</span> Fitment finder</a></li>
+          <li><a href="../pages/quote.html" data-proto="quote"><span class="n">2</span> Quote builder</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">3</span> Product page</a></li>
+          <li><a href="../pages/colours.html" data-proto="colours"><span class="n">4</span> RAL colours</a></li>
+          <li><a href="../pages/projects.html" data-proto="projects"><span class="n">5</span> Projects</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <!-- What we're proposing and why (shown when Notes are on) -->
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 1 of 5 · Fitment finder</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A single place to answer the first question every buyer has: which collar fits my unit? Type the indoor unit model number from the rating plate, or pick the brand and range, and the page names the facia, the collar size and the price, with one click through to choose a depth.</p></div>
+          <div><h2>Why</h2><p>The model data already exists. It sits on five brand pages published in October as long runs of text, which aren't linked from the menu, and on two of them the heading names the wrong brand. Held as structured data, the same information can be searched, kept up to date in one place and reused on every product page.</p></div>
+        </div>
+        <p class="proposal-foot">Brands, ranges, model numbers and facia references are taken from the live brand pages. Which collar size suits which facia is our sample logic and needs confirming.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="finder">
+      <!-- Page head (R10) -->
+      <section class="block">
+        <h1>Find the collar for your unit</h1>
+        <p class="lead">Search by the indoor unit model number on the rating plate, or choose the brand and range. We'll show the collar that fits and what it costs.</p>
+
+        <!-- Model number search (R11) -->
+        <div class="field finder-search">
+          <label for="ff-search">Indoor unit model number</label>
+          <input type="search" id="ff-search" placeholder="e.g. FFA35A2VEB9" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ff-suggest">
+          <ul class="suggest" id="ff-suggest" role="listbox" hidden></ul>
+          <div class="try-row"><span class="muted">Try:</span>
+            <button type="button" class="chip" data-try-model="FFA35A2VEB9">FFA35A2VEB9</button>
+            <button type="button" class="chip" data-try-model="PLA-ZM71RP">PLA-ZM71RP</button>
+            <button type="button" class="chip" data-try-model="AC071RN4DKG">AC071RN4DKG</button>
+          </div>
+        </div>
+        <div class="wf-note">Searches every brand at once and matches part numbers, so "FFA35" finds FFA35A2VEB9. Up, down and Enter choose a match; Escape closes the list.</div>
+
+        <p class="finder-or">or browse</p>
+
+        <!-- Brand and range picker (R12) -->
+        <h2 class="h3">Brand</h2>
+        <div class="chip-row" id="ff-brands" role="group" aria-label="Brand"></div>
+        <div class="wf-note query"><strong>Q:</strong> Toshiba models currently appear on the Fujitsu and Panasonic pages. We've listed them under Toshiba here. Are there other brands (LG, Hitachi, Mitsubishi Heavy Industries) you'd want in the finder at launch?</div>
+        <div id="ff-ranges" class="block" aria-live="polite"></div>
+
+        <!-- Result (R13, R14) -->
+        <div class="ff-result" id="ff-result" aria-live="polite" hidden></div>
+        <div class="wf-note query"><strong>Q:</strong> We've assumed a 620–625mm facia takes the 650 collar, 700mm the 750, and 950mm the 1000. Please confirm, and tell us when the 850 and 1200 are the better choice.</div>
+      </section>
+
+      <!-- Help (R15) -->
+      <section class="block">
+        <h2 class="h3">Can't find your unit?</h2>
+        <div class="spec-grid">
+          <div class="panel surface">
+            <h3 class="h3">Where's the model number?</h3>
+            <p>On the rating plate inside the cassette, behind the facia, or on the original order. It usually starts with the range letters, for example FFA, PLA or AC.</p>
+            <div class="wf-placeholder ratio-16-9">Photo: rating plate location</div>
+          </div>
+          <div class="panel surface">
+            <h3 class="h3">Ask us to check</h3>
+            <p>Send the model number, or a photo of the plate, and we'll confirm the size before you order. Office hours are Monday to Friday, 8am to 5pm.</p>
+            <a class="btn btn-secondary" href="../pages/quote.html?custom=1">Ask us to check a model</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Floating link to the quote (R31) -->
+  <a class="quote-pill" href="../pages/quote.html">Your quote <span class="count" data-quote-count>0</span><span class="sr-only"> items</span></a>
+  <!-- Prototype pager (replaces the live site footer, R02) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · Prices from cassettecollars.co.uk; deflector prices, delivery and discounts are sample figures · Photography © Cassette Collars</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+  <script src="../js/photos.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAL colours — Cassette Collars prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · RAL colour selector</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A colour page you can search by RAL code or name, filter by family, and act on: choose a colour and go straight to a collar in it, or apply it to every line in your quote. Each colour says plainly whether it's standard or adds time and cost.</p></div>
+          <div><h2>Why</h2><p>The current RAL page is a single image of a colour chart with no text, so it can't be searched, read by a screen reader, or found by anyone searching for "RAL 9005 cassette collar". Colour is one of the main reasons to buy a collar at all, and the page doesn't say what choosing one involves.</p></div>
+        </div>
+        <p class="proposal-foot">Thirty common RAL Classic colours are shown; the full range would be loaded the same way.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="colours">
+      <h1>Collar and deflector colours</h1>
+      <p class="lead">White comes as standard. Any RAL Classic colour can be made to order; pick one below to see what it adds.</p>
+
+      <div class="colour-layout">
+        <div>
+          <!-- Search and filter (R40, R41) -->
+          <div class="field finder-search">
+            <label for="rc-search">Search by RAL code or name</label>
+            <input type="search" id="rc-search" placeholder="e.g. 9005 or anthracite" autocomplete="off">
+          </div>
+          <div class="chip-row" id="rc-fams" role="group" aria-label="Colour family"></div>
+          <p class="result-count" id="rc-count" aria-live="polite"></p>
+          <!-- Swatch grid (R42) -->
+          <div class="swatch-grid" id="rc-grid"></div>
+          <div class="wf-note">Choosing a swatch updates the panel. On a phone the panel follows the grid.</div>
+        </div>
+
+        <!-- Selected colour (R43–R45) -->
+        <aside class="panel colour-detail" id="rc-detail" aria-live="polite" aria-label="Selected colour"></aside>
+      </div>
+
+      <div class="wf-note query"><strong>Q:</strong> Is RAL 9010 the "white as standard", or is the standard white a different reference? Do you keep any colours other than white in stock?</div>
+      <div class="wf-note query"><strong>Q:</strong> Would you send physical colour samples or a small test piece on request?</div>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+</body>
+</html>
