@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product page — Cassette Collars prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Cassette Collars prototypes, overview">Cassette Collars <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/fitment-finder.html" data-proto="fitment-finder"><span class="n">1</span> Fitment finder</a></li>
+          <li><a href="../pages/quote.html" data-proto="quote"><span class="n">2</span> Quote builder</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">3</span> Product page</a></li>
+          <li><a href="../pages/colours.html" data-proto="colours"><span class="n">4</span> RAL colours</a></li>
+          <li><a href="../pages/projects.html" data-proto="projects"><span class="n">5</span> Projects</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 3 of 5 · Product page</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>One template for every collar size, and later the deflectors, that holds everything a buyer needs to order correctly: photos, the full price table, a depth box that picks out the right row and price, colour and quantity, the right drawing, delivery cut-off, what fits it, and what we need from you.</p></div>
+          <div><h2>Why</h2><p>Today each size page is a price table and two buttons, and the deflector pages are empty. The tables don't say whether prices include VAT, the 650 page links to the 750 drawing, and four of the five sizes list the same hole size. Moving the figures into one template fixes those once and keeps them fixed.</p></div>
+        </div>
+        <p class="proposal-foot">Prices, depth bands and hole sizes are the live figures. We've treated prices as ex VAT, which needs confirming. Switch sizes with the buttons below the breadcrumb.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="product">
+      <nav class="wf-meta" aria-label="Breadcrumb"><a href="#">Home</a> › <a href="#">Cassette collars</a> › <span data-pd="name">Collar</span></nav>
+
+      <!-- Size switcher (R20) -->
+      <nav class="size-tabs" aria-label="Collar sizes">
+        <a href="../pages/product.html?size=650" data-size-link="650">650 × 650</a>
+        <a href="../pages/product.html?size=750" data-size-link="750">750 × 750</a>
+        <a href="../pages/product.html?size=850" data-size-link="850">850 × 850</a>
+        <a href="../pages/product.html?size=1000" data-size-link="1000">1000 × 1000</a>
+        <a href="../pages/product.html?size=1200" data-size-link="1200">1200 × 1200</a>
+      </nav>
+
+      <p class="panel surface" id="pd-context" hidden></p>
+
+      <div class="product-top">
+        <!-- Gallery (R21) -->
+        <div>
+          <div class="carousel" aria-roledescription="carousel" aria-label="Product photos">
+            <div class="carousel-track">
+              <div class="carousel-item solo"><div class="wf-placeholder ratio-4-3" data-pd="gallery">Collar</div></div>
+              <div class="carousel-item solo"><div class="wf-placeholder ratio-4-3">Fitted in an office ceiling</div></div>
+              <div class="carousel-item solo"><div class="wf-placeholder ratio-4-3">Edge detail and taper</div></div>
+              <div class="carousel-item solo"><div class="wf-placeholder ratio-4-3">Collar with facia, before fitting</div></div>
+            </div>
+            <div class="carousel-controls"><button type="button" class="carousel-arrow" data-dir="prev" aria-label="Previous photo">‹</button><button type="button" class="carousel-arrow" data-dir="next" aria-label="Next photo">›</button></div>
+            <div class="carousel-indicators"></div>
+          </div>
+          <div class="wf-note">Photos come from the client's own install shots, several of which are already on the brand pages.</div>
+        </div>
+
+        <!-- Configurator (R22–R25) -->
+        <div class="stack">
+          <div>
+            <h1 data-pd="name">Collar</h1>
+            <p class="lead">Fills the gap between the ceiling and the cassette facia so the unit looks finished. GRP or PMMA/ABS, white as standard or any RAL colour.</p>
+            <p>From <strong data-pd="from">£0</strong> ex VAT</p>
+          </div>
+          <form class="configurator" onsubmit="return false" aria-label="Choose depth, colour and quantity">
+            <div class="field">
+              <label for="pd-depth">Depth of the gap (mm)</label>
+              <div class="depth-row"><input type="number" id="pd-depth" min="0" max="600" value="100" inputmode="numeric"><span class="unit">mm</span>
+                <button type="button" class="btn-link" data-modal-open="measure-modal">How to measure</button></div>
+              <p class="field-hint">Standard depths 0 to <span data-pd="max">0</span>mm. Anything else is made to order.</p>
+              <p class="field-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="pd-colour">Colour</label>
+              <select id="pd-colour"></select>
+              <p class="field-hint"><a href="../pages/colours.html">See all colours</a></p>
+            </div>
+            <div class="field">
+              <label for="pd-qty">Quantity</label>
+              <div class="stepper"><button type="button" data-step="-1" aria-label="One fewer">−</button><input type="number" id="pd-qty" min="1" max="999" value="1"><button type="button" data-step="1" aria-label="One more">+</button></div>
+            </div>
+            <div class="price-out" id="pd-price" aria-live="polite"></div>
+            <button type="button" class="btn btn-block" id="pd-add">Add to quote</button>
+            <p class="dispatch" data-cutoff>Order before 10am for same-day dispatch.</p>
+          </form>
+          <div class="wf-note">Typing a depth highlights its row in the price table below and updates the price; clicking a row fills the depth. A depth outside the standard bands becomes a made-to-order line, priced in the reply.</div>
+          <div class="wf-note query"><strong>Q:</strong> RAL colours are priced here at +15% and 3–5 working days. Both are sample figures. What do you charge, and how long does it add?</div>
+        </div>
+      </div>
+
+      <!-- Price table (R23) -->
+      <section class="block" aria-labelledby="pt-title">
+        <div class="row between"><h2 class="h3" id="pt-title">Prices by depth</h2><span class="wf-meta">White · each · tap a row to choose it</span></div>
+        <div class="table-scroll">
+          <table class="data-table price-table" id="pd-table">
+            <thead><tr><th scope="col">Depth (mm)</th><th scope="col" class="num">Ex VAT</th><th scope="col" class="num">Inc VAT</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Specification, fits, downloads (R24, R26, R27) -->
+      <section class="block spec-grid">
+        <div>
+          <h2 class="h3">Specification</h2>
+          <dl class="kv">
+            <dt>Outer size</dt><dd><span data-pd="size">0</span>mm</dd>
+            <dt>Hole size</dt><dd><span data-pd="hole">0</span>mm</dd>
+            <dt>Tapered</dt><dd data-pd="taper">Yes</dd>
+            <dt>Material</dt><dd>GRP or PMMA/ABS</dd>
+            <dt>Fire rating</dt><dd>[to confirm]</dd>
+            <dt>Fixings</dt><dd>None, rests on the facia</dd>
+          </dl>
+          <div class="wf-note query"><strong>Q:</strong> Four of the five sizes list a 585 × 585 hole on the live site. Is that right for the 750, 850 and 1200? And what fire rating do the collars carry? Specifiers will look for it here.</div>
+        </div>
+        <div>
+          <h2 class="h3">Fits these units</h2>
+          <ul class="fits-list" id="pd-fits"></ul>
+          <p class="small"><a href="../pages/fitment-finder.html">Check your model number</a></p>
+        </div>
+        <div>
+          <h2 class="h3">Downloads</h2>
+          <ul class="dl-list">
+            <li><a href="#">CAD drawing, <span data-pd="size">0</span>mm</a><span class="wf-meta">PDF</span></li>
+            <li><a href="#">Datasheet</a><span class="wf-meta">PDF</span></li>
+            <li><a href="#">Fitting instructions</a><span class="wf-meta">PDF</span></li>
+          </ul>
+          <div class="wf-note">Each download is attached to its size in the CMS, so a size page can't link to another size's drawing.</div>
+        </div>
+      </section>
+
+      <!-- What we need from you (R28) -->
+      <section class="block" aria-labelledby="need-title">
+        <h2 class="h3" id="need-title">What we need from you</h2>
+        <ol class="need-list">
+          <li><span><strong>The size</strong>, or the indoor unit model number and we'll work it out.</span></li>
+          <li><span><strong>Standard or compact cassette.</strong> The finder tells you which.</span></li>
+          <li><span><strong>The depth of the gap</strong>, between 15 and 320mm. <button type="button" class="btn-link" data-modal-open="measure-modal">How to measure</button></span></li>
+          <li><span><strong>How many</strong>, and the colour if not white.</span></li>
+        </ol>
+      </section>
+
+      <!-- FAQs (R29) -->
+      <section class="block" aria-labelledby="faq-title">
+        <h2 class="h3" id="faq-title">Questions</h2>
+        <div class="accordion">
+          <div class="accordion-item"><button type="button" class="accordion-title" aria-expanded="false">Is it difficult to fit?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>No. The collar rests on the cassette facia, with no extra fixings. Put it on the facia and fit the facia as usual.</p></div></div>
+          <div class="accordion-item"><button type="button" class="accordion-title" aria-expanded="false">Can it be cut on site?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>Collars are cut to the depth you give us, so the engineer only has to fit them. They can be trimmed on site if needed.</p></div></div>
+          <div class="accordion-item"><button type="button" class="accordion-title" aria-expanded="false">When will it be dispatched?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>Standard white sizes ordered before 10am on a working day go out the same day. RAL colours and custom sizes take longer; we'll confirm the date with your quote.</p></div></div>
+          <div class="accordion-item"><button type="button" class="accordion-title" aria-expanded="false">Do you offer trade or volume prices?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>[Sample] 5% off orders of ten or more collars, applied automatically in the quote.</p></div></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- How to measure (R28) -->
+    <div class="wf-modal" id="measure-modal" role="dialog" aria-modal="true" aria-labelledby="measure-title">
+      <div class="wf-modal-panel">
+        <button type="button" class="wf-modal-close" aria-label="Close">×</button>
+        <h2 id="measure-title" class="h3">How to measure the depth</h2>
+        <div class="wf-placeholder measure-diagram">Diagram: ceiling line, cassette body and facia, with the gap marked</div>
+        <ol class="need-list spaced">
+          <li><span>Fit the cassette at its final height.</span></li>
+          <li><span>Measure from the finished ceiling down to where the facia will sit, at all four corners.</span></li>
+          <li><span>Give us the largest of the four. If they differ by more than 10mm, the ceiling may be sloping: add a photo with your quote.</span></li>
+        </ol>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating link to the quote (R31) -->
+  <a class="quote-pill" href="../pages/quote.html">Your quote <span class="count" data-quote-count>0</span><span class="sr-only"> items</span></a>
+  <!-- Prototype pager (replaces the live site footer, R02) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · Greyscale, structure only · Prices from cassettecollars.co.uk; deflector prices, delivery and discounts are sample figures</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+
+</body>
+</html>

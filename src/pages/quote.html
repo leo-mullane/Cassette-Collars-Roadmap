@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote builder — Cassette Collars prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 2 of 5 · Quote builder</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>The general enquiry form is replaced by a quote that builds as you go. Lines arrive from the finder, product pages and colour selector, or are added here, with an indicative total ex and inc VAT. Custom sizes and sloping ceilings can be described, with a photo. The last step asks only for the details needed to reply.</p></div>
+          <div><h2>Why</h2><p>Every page on the site ends at the same form, which asks for a company address but not for the size, depth and quantity the FAQ says are needed to quote, so most enquiries must need a second email or a phone call before anyone can price them. This keeps a person replying to every quote, but starts the conversation with the facts.</p></div>
+        </div>
+        <p class="proposal-foot">It stops short of taking payment. Online ordering for standard sizes can follow on the same lines (roadmap stage 4) if wanted.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="quote">
+      <h1>Your quote</h1>
+      <ol class="steps-indicator" aria-label="Steps">
+        <li class="current" aria-current="step">Items</li>
+        <li>Your details</li>
+        <li>Sent</li>
+      </ol>
+
+      <!-- Step 1: lines and totals (R30–R35) -->
+      <section class="q-step" aria-labelledby="q1-title">
+        <h2 class="h3" id="q1-title">What do you need?</h2>
+        <div class="sample-banner" id="q-sample" hidden><span>These are sample lines so you can see how it works.</span><button type="button" class="btn btn-secondary btn-sm">Clear and start again</button></div>
+        <div class="quote-layout">
+          <div>
+            <div id="q-lines" aria-live="polite"></div>
+            <div class="wf-note">Quantities can be changed in place and lines removed. The quote is kept for the session, so a buyer can go back to the finder or a product page and keep adding.</div>
+
+            <!-- Add a line (R33, R34) -->
+            <form class="add-line" id="q-add" novalidate aria-labelledby="qa-title">
+              <h3 class="h3" id="qa-title">Add a line</h3>
+              <div class="form-grid three">
+                <div class="field"><label for="qa-kind">Product</label>
+                  <select id="qa-kind"><option value="collar">Standard collar</option><option value="deflector">Air deflector</option><option value="custom">Custom size collar</option></select></div>
+                <div class="field" data-for-kind="collar deflector"><label for="qa-size">Size</label><select id="qa-size"></select></div>
+                <div class="field" data-for-kind="custom" hidden><label for="qa-w">Width (mm)</label><input type="number" id="qa-w" min="300" max="2000" value="900"><p class="field-error" hidden>Enter a width of 300mm or more</p></div>
+                <div class="field" data-for-kind="custom" hidden><label for="qa-l">Length (mm)</label><input type="number" id="qa-l" min="300" max="2000" value="900"><p class="field-error" hidden>Enter a length of 300mm or more</p></div>
+                <div class="field" data-for-kind="collar custom"><label for="qa-depth">Depth (mm)</label><input type="number" id="qa-depth" min="0" max="600" value="100"><p class="field-error" hidden>Enter a depth between 0 and 600mm</p></div>
+                <div class="field" data-for-kind="custom" hidden><label for="qa-angle">Ceiling angle <span class="muted">(optional)</span></label><input type="number" id="qa-angle" min="0" max="45" placeholder="0"><p class="field-hint">Degrees from flat, for pitched ceilings</p></div>
+                <div class="field"><label for="qa-colour">Colour</label><select id="qa-colour"></select></div>
+                <div class="field"><label for="qa-qty">Quantity</label><input type="number" id="qa-qty" min="1" max="999" value="1"></div>
+                <div class="field full" data-for-kind="custom" hidden><label for="qa-photo">Photo of the ceiling or unit <span class="muted">(optional)</span></label><input type="file" id="qa-photo" accept="image/*"></div>
+              </div>
+              <button type="submit" class="btn btn-secondary">Add to quote</button>
+            </form>
+            <div class="wf-note query"><strong>Q:</strong> Is there anything else you'd always ask about a custom collar, such as the material or whether it needs a cut-out for a sensor or isolator?</div>
+          </div>
+
+          <!-- Totals (R35, R36) -->
+          <div class="panel surface totals-card">
+            <h3 class="h3">Indicative total</h3>
+            <div id="q-totals" aria-live="polite"></div>
+            <button type="button" class="btn btn-block" id="q-next">Continue to your details</button>
+            <p class="wf-meta">We confirm every quote by email, usually the same working day.</p>
+            <div class="wf-note query"><strong>Q:</strong> Delivery at £12.50, free over £500, and 5% off ten or more collars are sample rules. What are yours?</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: details (R37) -->
+      <section class="q-step" aria-labelledby="q2-title" hidden>
+        <h2 class="h3" id="q2-title">Where should we send it?</h2>
+        <form id="q-details" novalidate>
+          <div class="form-grid">
+            <div class="field"><label for="qd-name">Your name</label><input type="text" id="qd-name" autocomplete="name" required><p class="field-error" hidden>Enter your name</p></div>
+            <div class="field"><label for="qd-company">Company</label><input type="text" id="qd-company" autocomplete="organization" required><p class="field-error" hidden>Enter your company name</p></div>
+            <div class="field"><label for="qd-email">Email</label><input type="email" id="qd-email" autocomplete="email" required><p class="field-error" hidden>Enter an email address like name@company.co.uk</p></div>
+            <div class="field"><label for="qd-tel">Phone</label><input type="tel" id="qd-tel" autocomplete="tel" required><p class="field-hint">Spaces are fine</p><p class="field-error" hidden>Enter a phone number with at least 10 digits</p></div>
+            <div class="field"><label for="qd-postcode">Delivery postcode</label><input type="text" id="qd-postcode" autocomplete="postal-code" required><p class="field-error" hidden>Enter a UK postcode like CB22 3FJ</p></div>
+            <div class="field"><label for="qd-ref">Your reference or job number <span class="muted">(optional)</span></label><input type="text" id="qd-ref"></div>
+            <div class="field full"><label for="qd-notes">Anything else? <span class="muted">(optional)</span></label><textarea id="qd-notes" rows="3"></textarea></div>
+          </div>
+          <div class="row">
+            <button type="button" class="btn btn-secondary" id="q-back">Back to items</button>
+            <button type="submit" class="btn">Send for a quote</button>
+          </div>
+        </form>
+        <div class="wf-note">Five required fields. The full delivery address is collected when the order is confirmed, not at quote stage.</div>
+      </section>
+
+      <!-- Step 3: confirmation (R38) -->
+      <section class="q-step confirm" aria-labelledby="q3-title" hidden>
+        <h2 class="h3" id="q3-title">Thanks, your quote request is with us</h2>
+        <p>Reference <span class="ref" id="q-ref">CC-000000</span></p>
+        <p>We'll reply to <strong id="q-email-echo">you</strong> with a confirmed price and dispatch date, usually the same working day. If it's urgent, call 01223 618236.</p>
+        <h3 class="h3">What you asked for</h3>
+        <ul id="q-summary"></ul>
+        <div class="row"><button type="button" class="btn btn-secondary" id="q-restart">Start a new quote</button><a class="btn-link" href="~/pages/fitment-finder.html">Back to the finder</a></div>
+        <div class="wf-note">The request is emailed to the office and to the customer, and can feed a CRM or accounts system later.</div>
+      </section>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+</body>
+</html>

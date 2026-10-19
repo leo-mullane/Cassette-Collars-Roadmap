@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects and reviews — Cassette Collars prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Cassette Collars prototypes, overview">Cassette Collars <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/fitment-finder.html" data-proto="fitment-finder"><span class="n">1</span> Fitment finder</a></li>
+          <li><a href="../pages/quote.html" data-proto="quote"><span class="n">2</span> Quote builder</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">3</span> Product page</a></li>
+          <li><a href="../pages/colours.html" data-proto="colours"><span class="n">4</span> RAL colours</a></li>
+          <li><a href="../pages/projects.html" data-proto="projects"><span class="n">5</span> Projects</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 5 of 5 · Projects and reviews</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A page that shows the products doing their job: installs grouped by setting and product, each with a line on the problem it solved, real customer reviews with a count, and the company's story told once and consistently.</p></div>
+          <div><h2>Why</h2><p>Good install photos exist but are scattered across the brand pages. The homepage has two testimonials and a claim of more than 200 clients, and we couldn't find any reviews elsewhere. It also says 15+ years where About says 30. Specifiers and facilities managers want to see a collar in a room like theirs before they ask for a price.</p></div>
+        </div>
+        <p class="proposal-foot">Project titles and descriptions are illustrative. Reviews are left as placeholders: we won't write customer quotes.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="projects">
+      <h1>Projects</h1>
+      <p class="lead">Collars and deflectors in restaurants, offices, schools, shops and hotels across the UK.</p>
+
+      <!-- Filters (R50) -->
+      <div class="filter-group"><span class="lbl" id="pj-s-l">Setting</span><div class="chip-row" id="pj-settings" role="group" aria-labelledby="pj-s-l"></div></div>
+      <div class="filter-group"><span class="lbl" id="pj-p-l">Product</span><div class="chip-row" id="pj-products" role="group" aria-labelledby="pj-p-l"></div></div>
+      <p class="result-count" id="pj-count" aria-live="polite"></p>
+
+      <!-- Gallery (R51) -->
+      <ul class="pj-grid" id="pj-grid"></ul>
+      <div class="wf-note">Each card opens a larger view with the description. Left and right arrow keys move between projects; Escape closes.</div>
+      <div class="wf-note query"><strong>Q:</strong> Could you send ten to fifteen install photos with the setting and a line on each? Customer names are optional and only with their permission.</div>
+
+      <!-- Reviews (R52, R53) -->
+      <section class="block" aria-labelledby="rv-title">
+        <h2 class="h3" id="rv-title">What customers say</h2>
+        <div class="reviews-summary">
+          <div class="panel surface stack">
+            <p class="eyebrow-sm">Google reviews</p>
+            <p class="price-big">[Rating] <small>from [number] reviews</small></p>
+            <a class="btn btn-secondary" href="#">Read all reviews</a>
+            <a class="btn-link" href="#">Leave a review</a>
+          </div>
+          <div class="review-cards">
+            <blockquote class="wf-quote"><p>[Customer review about fit or finish]</p><cite>[Name], [Company]</cite></blockquote>
+            <blockquote class="wf-quote"><p>[Customer review about speed of delivery]</p><cite>[Name], [Company]</cite></blockquote>
+            <blockquote class="wf-quote"><p>[Customer review about advice on site]</p><cite>[Name], [Company]</cite></blockquote>
+          </div>
+        </div>
+        <div class="wf-note query"><strong>Q:</strong> Do you have a Google Business Profile? A short request emailed after each delivery is usually the quickest way to build up reviews.</div>
+      </section>
+
+      <!-- Company story (R54) -->
+      <section class="block story" aria-labelledby="st-title">
+        <div class="wf-placeholder ratio-1-1">Photo: John Johnson</div>
+        <div>
+          <h2 class="h3" id="st-title">Thirty years on the tools, in the office and on site</h2>
+          <p>John Johnson started in air conditioning more than 30 years ago, moved from installation into maintenance, then sales and project management, and took over Cassette Collars Limited in 2020.</p>
+          <ol class="timeline">
+            <li><b>30+ years ago</b>Starts in air conditioning on what was meant to be a two-day job, and stays</li>
+            <li><b>Later</b>Maintenance, commissioning, then sales and project management on split, VRV and VRF systems</li>
+            <li><b>2020</b>Takes over Cassette Collars Limited</li>
+            <li><b>Today</b>Runs the business from Pampisford, near Cambridge</li>
+          </ol>
+          <div class="wf-note query"><strong>Q:</strong> How should Protec UK, Cassette Collars and Cassette Collars Limited be described? And should the homepage figure be the company's years or John's?</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Project viewer (R51) -->
+    <div class="wf-modal" id="pj-modal" role="dialog" aria-modal="true" aria-labelledby="pj-m-title">
+      <div class="wf-modal-panel" tabindex="-1">
+        <button type="button" class="wf-modal-close" aria-label="Close">×</button>
+        <div class="wf-placeholder ratio-4-3">Install photo</div>
+        <p class="eyebrow-sm" id="pj-m-meta"></p>
+        <h2 class="h3" id="pj-m-title">Project</h2>
+        <p id="pj-m-detail"></p>
+        <div class="pj-nav"><button type="button" class="btn btn-secondary btn-sm" id="pj-prev">Previous</button><span class="wf-meta" id="pj-m-pos"></span><button type="button" class="btn btn-secondary btn-sm" id="pj-next">Next</button></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating link to the quote (R31) -->
+  <a class="quote-pill" href="../pages/quote.html">Your quote <span class="count" data-quote-count>0</span><span class="sr-only"> items</span></a>
+  <!-- Prototype pager (replaces the live site footer, R02) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · Greyscale, structure only · Prices from cassettecollars.co.uk; deflector prices, delivery and discounts are sample figures</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+
+</body>
+</html>
