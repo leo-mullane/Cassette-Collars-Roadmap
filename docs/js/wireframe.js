@@ -537,7 +537,7 @@
           '</div>' +
           '<div class="ff-match">' +
             '<p class="eyebrow-sm">The collar that fits</p>' +
-            '<div class="wf-placeholder ratio-4-3">' + c.size + ' × ' + c.size + ' collar</div>' +
+            '<div class="wf-placeholder ratio-4-3" data-photo="collar-' + size + '">' + c.size + ' × ' + c.size + ' collar</div>' +
             '<h3>' + esc(c.name) + '</h3>' +
             '<dl class="kv"><dt>Hole size</dt><dd>' + c.hole + 'mm</dd><dt>Depths</dt><dd>0–' + maxDepth(size) + 'mm</dd><dt>From</dt><dd>' + money(from) + ' ex VAT</dd></dl>' +
             '<div class="row"><a class="btn" href="product.html?' + q + '">Choose depth and colour</a>' +
@@ -629,7 +629,7 @@
     $all('[data-pd="taper"]').forEach(function (el) { el.textContent = c.tapered; });
     $all('[data-pd="max"]').forEach(function (el) { el.textContent = maxDepth(size); });
     $all('[data-pd="from"]').forEach(function (el) { el.textContent = money(Math.min.apply(null, c.bands.map(function (b) { return b[2]; }))); });
-    $all('[data-pd="gallery"]').forEach(function (el) { el.textContent = c.size + ' × ' + c.size + ' collar'; });
+    $all('[data-pd="gallery"]').forEach(function (el) { el.textContent = c.size + ' × ' + c.size + ' collar'; el.setAttribute('data-photo', 'collar-' + size); });
 
     var model = param('model'), brand = param('brand'), facia = param('facia');
     var ctx = $('#pd-context');
@@ -933,7 +933,7 @@
       visible = PROJECTS.filter(function (p) { return (setting === 'All' || p.setting === setting) && (product === 'All' || p.product === product); });
       count.textContent = visible.length + ' project' + (visible.length === 1 ? '' : 's');
       grid.innerHTML = visible.length ? visible.map(function (p, i) {
-        return '<li class="pj-card"><button type="button" class="pj-open" data-i="' + i + '"><span class="wf-placeholder ratio-4-3">Install photo</span>' +
+        return '<li class="pj-card"><button type="button" class="pj-open" data-i="' + i + '"><span class="wf-placeholder ratio-4-3" data-photo="project-' + p.id + '">Install photo</span>' +
           '<span class="pj-meta"><span class="badge">' + esc(p.setting) + '</span> <span class="badge">' + esc(p.product) + '</span></span>' +
           '<span class="pj-title">' + esc(p.title) + '</span></button></li>';
       }).join('') : '<li class="empty-state">No projects match. <button type="button" class="btn-link" id="pj-reset">Show all</button></li>';
@@ -945,6 +945,7 @@
       at = (i + visible.length) % visible.length;
       var p = visible[at];
       $('#pj-m-title').textContent = p.title;
+      $('#pj-m-photo').setAttribute('data-photo', 'project-' + p.id);
       $('#pj-m-meta').textContent = p.setting + ' · ' + p.product;
       $('#pj-m-detail').textContent = p.detail;
       $('#pj-m-pos').textContent = (at + 1) + ' of ' + visible.length;
