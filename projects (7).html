@@ -4,33 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects and reviews — Cassette Collars prototype</title>
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <!-- Prototype navigator (replaces the live site header, R01) -->
-  <header class="sticky site-header proto-nav">
-    <div class="container proto-nav-row">
-      <a class="proto-home" href="../index.html" aria-label="Cassette Collars prototypes, overview">Cassette Collars <span>prototypes</span></a>
-      <nav aria-label="Prototypes">
-        <ul class="proto-links">
-          <li><a href="../index.html" data-proto="index">Overview</a></li>
-          <li><a href="../pages/fitment-finder.html" data-proto="fitment-finder"><span class="n">1</span> Fitment finder</a></li>
-          <li><a href="../pages/quote.html" data-proto="quote"><span class="n">2</span> Quote builder</a></li>
-          <li><a href="../pages/product.html" data-proto="product"><span class="n">3</span> Product page</a></li>
-          <li><a href="../pages/colours.html" data-proto="colours"><span class="n">4</span> RAL colours</a></li>
-          <li><a href="../pages/projects.html" data-proto="projects"><span class="n">5</span> Projects</a></li>
-        </ul>
-      </nav>
-      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
-        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
-        <span class="notes-label">Notes off</span>
-      </button>
-    </div>
-  </header>
-
+  <!-- @@include header.html -->
 
   <main id="main">
     <aside class="proposal" aria-label="About this prototype">
@@ -107,18 +86,6 @@
     </div>
   </main>
 
-  <!-- Floating link to the quote (R31) -->
-  <a class="quote-pill" href="../pages/quote.html">Your quote <span class="count" data-quote-count>0</span><span class="sr-only"> items</span></a>
-  <!-- Prototype pager (replaces the live site footer, R02) -->
-  <footer class="proto-footer">
-    <div class="container">
-      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
-      <p class="wf-meta">Prototypes for discussion · Prices from cassettecollars.co.uk; deflector prices, delivery and discounts are sample figures · Photography © Cassette Collars</p>
-    </div>
-  </footer>
-  <script src="../js/data.js"></script>
-  <script src="../js/wireframe.js"></script>
-  <script src="../js/photos.js"></script>
-
+  <!-- @@include footer.html -->
 </body>
 </html>

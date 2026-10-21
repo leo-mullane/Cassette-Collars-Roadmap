@@ -5,7 +5,7 @@ Five clickable prototypes for improvements to cassettecollars.co.uk, following t
 Photography is Cassette Collars' own, loaded directly from cassettecollars.co.uk by `src/js/photos.js` (the mapping of images to products, galleries and projects lives there). Where the images can't load, illustrated placeholders in the brand palette show instead. Stock and AI-generated images on the live site are not used. Photography © Cassette Collars; the repository and site are public, so treat them accordingly.
 
 ## View
-Live: https://hrhlescargotleo.github.io/Cassette-Collars-Roadmap/ (once GitHub Pages is switched on)
+Live: https://leo-mullane.github.io/Cassette-Collars-Roadmap/
 
 Or open `docs/index.html` in a browser. No server or install needed.
 

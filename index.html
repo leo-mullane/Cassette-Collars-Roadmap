@@ -4,12 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cassette Collars — website improvement prototypes</title>
-  <link rel="stylesheet" href="~/css/base.css">
-  <link rel="stylesheet" href="~/css/components.css">
-  <link rel="stylesheet" href="~/css/theme.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/theme.css">
 </head>
 <body class="hub">
-  <!-- @@include header.html -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="./index.html" aria-label="Cassette Collars prototypes, overview">Cassette Collars <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="./index.html" data-proto="index">Overview</a></li>
+          <li><a href="./pages/fitment-finder.html" data-proto="fitment-finder"><span class="n">1</span> Fitment finder</a></li>
+          <li><a href="./pages/quote.html" data-proto="quote"><span class="n">2</span> Quote builder</a></li>
+          <li><a href="./pages/product.html" data-proto="product"><span class="n">3</span> Product page</a></li>
+          <li><a href="./pages/colours.html" data-proto="colours"><span class="n">4</span> RAL colours</a></li>
+          <li><a href="./pages/projects.html" data-proto="projects"><span class="n">5</span> Projects</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
   <!-- Landing page for the prototype pack -->
   <div class="hub-hero" data-photo="hero" data-photo-alt="Restaurant dining room with a ceiling cassette and collar">
     <div class="container">
@@ -31,53 +52,53 @@
         <h2 class="hub-h2" id="protos-title">The prototypes</h2>
         <ol class="proto-list">
           <li class="proto-card">
-            <a class="proto-thumb" href="~/pages/fitment-finder.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-finder">Fitment finder</span></a>
+            <a class="proto-thumb" href="./pages/fitment-finder.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-finder">Fitment finder</span></a>
             <div class="proto-body">
               <span class="proto-num">1</span>
-              <h3><a href="~/pages/fitment-finder.html">Find the collar for your unit</a></h3>
+              <h3><a href="./pages/fitment-finder.html">Find the collar for your unit</a></h3>
               <p>Search by indoor unit model number, or choose brand and range, and see the facia, the collar that fits and its price. Built from the model data on the live brand pages.</p>
               <p class="proto-try"><strong>Try:</strong> type "PLA-ZM" and pick a Mitsubishi Electric model, then choose depth and colour.</p>
-              <a class="btn" href="~/pages/fitment-finder.html">Open prototype</a>
+              <a class="btn" href="./pages/fitment-finder.html">Open prototype</a>
             </div>
           </li>
           <li class="proto-card">
-            <a class="proto-thumb" href="~/pages/quote.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-quote">Quote builder</span></a>
+            <a class="proto-thumb" href="./pages/quote.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-quote">Quote builder</span></a>
             <div class="proto-body">
               <span class="proto-num">2</span>
-              <h3><a href="~/pages/quote.html">A quote that builds as you go</a></h3>
+              <h3><a href="./pages/quote.html">A quote that builds as you go</a></h3>
               <p>Replaces the general enquiry form with line-by-line sizes, depths, colours and quantities, an indicative total ex and inc VAT, custom sizes with a photo, and five fields to send it.</p>
               <p class="proto-try"><strong>Try:</strong> change the 1000 × 1000 quantity to 10 and watch the volume discount appear, then add a custom collar for a sloping ceiling.</p>
-              <a class="btn" href="~/pages/quote.html">Open prototype</a>
+              <a class="btn" href="./pages/quote.html">Open prototype</a>
             </div>
           </li>
           <li class="proto-card">
-            <a class="proto-thumb" href="~/pages/product.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-product">Product page</span></a>
+            <a class="proto-thumb" href="./pages/product.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-product">Product page</span></a>
             <div class="proto-body">
               <span class="proto-num">3</span>
-              <h3><a href="~/pages/product.html">A product page that answers the questions</a></h3>
+              <h3><a href="./pages/product.html">A product page that answers the questions</a></h3>
               <p>One template for every size: the live price table with VAT shown, a depth box that picks out your row, colour and quantity, the right drawing, what it fits, what we need from you and the dispatch cut-off.</p>
               <p class="proto-try"><strong>Try:</strong> type a depth of 175, then 310, and see how each is priced.</p>
-              <a class="btn" href="~/pages/product.html?size=1000">Open prototype</a>
+              <a class="btn" href="./pages/product.html?size=1000">Open prototype</a>
             </div>
           </li>
           <li class="proto-card">
-            <a class="proto-thumb" href="~/pages/colours.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-colours">RAL colours</span></a>
+            <a class="proto-thumb" href="./pages/colours.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-colours">RAL colours</span></a>
             <div class="proto-body">
               <span class="proto-num">4</span>
-              <h3><a href="~/pages/colours.html">Colours you can search and choose</a></h3>
+              <h3><a href="./pages/colours.html">Colours you can search and choose</a></h3>
               <p>Search by RAL code or name, filter by family, see what a colour adds in time and cost, and apply it to a collar or the whole quote.</p>
               <p class="proto-try"><strong>Try:</strong> search "anthracite", then apply it to your quote.</p>
-              <a class="btn" href="~/pages/colours.html">Open prototype</a>
+              <a class="btn" href="./pages/colours.html">Open prototype</a>
             </div>
           </li>
           <li class="proto-card">
-            <a class="proto-thumb" href="~/pages/projects.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-projects">Projects and reviews</span></a>
+            <a class="proto-thumb" href="./pages/projects.html" tabindex="-1" aria-hidden="true"><span class="wf-placeholder" data-photo="thumb-projects">Projects and reviews</span></a>
             <div class="proto-body">
               <span class="proto-num">5</span>
-              <h3><a href="~/pages/projects.html">Projects and reviews</a></h3>
+              <h3><a href="./pages/projects.html">Projects and reviews</a></h3>
               <p>Installs filtered by setting and product, a place for real reviews, and the company story told once.</p>
               <p class="proto-try"><strong>Try:</strong> filter to Offices and Deflectors, then open a project and use the arrow keys.</p>
-              <a class="btn" href="~/pages/projects.html">Open prototype</a>
+              <a class="btn" href="./pages/projects.html">Open prototype</a>
             </div>
           </li>
         </ol>
@@ -97,15 +118,27 @@
         <div class="panel surface">
           <h2 class="hub-h2">Also in this pack</h2>
           <ul class="hub-links">
-            <li><a href="~/modules/library.html">Module library</a><span>The new components, each shown once</span></li>
-            <li><a href="~/pages/product.html?size=650">650 × 650 product page</a><span>Prototype 3 with the smallest size</span></li>
-            <li><a href="~/pages/quote.html?custom=1">Custom size request</a><span>Prototype 2, opened at the custom collar form</span></li>
+            <li><a href="./modules/library.html">Module library</a><span>The new components, each shown once</span></li>
+            <li><a href="./pages/product.html?size=650">650 × 650 product page</a><span>Prototype 3 with the smallest size</span></li>
+            <li><a href="./pages/quote.html?custom=1">Custom size request</a><span>Prototype 2, opened at the custom collar form</span></li>
           </ul>
         </div>
       </section>
     </div>
   </main>
 
-  <!-- @@include footer.html -->
+  <!-- Floating link to the quote (R31) -->
+  <a class="quote-pill" href="./pages/quote.html">Your quote <span class="count" data-quote-count>0</span><span class="sr-only"> items</span></a>
+  <!-- Prototype pager (replaces the live site footer, R02) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · Prices from cassettecollars.co.uk; deflector prices, delivery and discounts are sample figures · Photography © Cassette Collars</p>
+    </div>
+  </footer>
+  <script src="./js/data.js"></script>
+  <script src="./js/wireframe.js"></script>
+  <script src="./js/photos.js"></script>
+
 </body>
 </html>
